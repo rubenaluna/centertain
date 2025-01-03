@@ -17,7 +17,7 @@ export default {
   setup() {
     const container = shallowRef<HTMLElement | null>(null)
     const map = shallowRef<Map | null>(null)
-    const position = reactive({ lng: -74.0054338, lat: 40.7124804, zoom: 14 })
+    const position = reactive({ lng: -74.0054338, lat: 40.7124804 })
 
     onBeforeMount(() => {
       if (navigator.geolocation != null) {
@@ -40,7 +40,7 @@ export default {
           container: container.value,
           style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${apiKey}`,
           center: [position.lng, position.lat],
-          zoom: 15,
+          zoom: 13,
         }),
       )
     })

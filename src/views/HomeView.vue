@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Home from '../components/Home.vue'
+import HomeMap from '../components/HomeMap.vue'
 </script>
 
 <template>
   <main>
-    <Home />
+    <HomeMap />
   </main>
 </template>
 

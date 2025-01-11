@@ -6,10 +6,10 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from 'radix-vue'
-import Friend from './Friend.vue'
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import type { Friend } from '@/models/friends'
 </script>
 
 <template>
@@ -42,7 +42,7 @@ import { v4 as uuidv4 } from 'uuid'
 </template>
 
 <script lang="ts">
-const friends = ref([{ id: uuidv4(), name: 'New Friend', address: '' }])
+const friends = ref<Friend[]>([{ id: uuidv4(), name: 'New Friend', address: '' }])
 
 const onAddFriend = () => {
   friends.value.push({ id: uuidv4(), name: 'New Friend', address: '' })

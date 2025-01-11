@@ -12,7 +12,7 @@ import { Map } from 'maplibre-gl'
 import { shallowRef, onMounted, onUnmounted, markRaw, reactive, onBeforeMount, watch } from 'vue'
 
 export default {
-  name: 'HomeMap',
+  name: 'Map',
 
   setup() {
     const container = shallowRef<HTMLElement | null>(null)
@@ -41,6 +41,7 @@ export default {
           style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${apiKey}`,
           center: [position.lng, position.lat],
           zoom: 13,
+          attributionControl: false,
         }),
       )
     })
@@ -68,6 +69,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 
 .map {

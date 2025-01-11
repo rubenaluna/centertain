@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import HomeMap from '../components/HomeMap.vue'
+import Friends from '../components/Home/Friends.vue'
+import Map from '../components/Home/Map.vue'
 </script>
 
 <template>
   <main>
-    <HomeMap />
+    <Friends />
+    <Map />
   </main>
 </template>
 

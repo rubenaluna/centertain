@@ -1,18 +1,17 @@
 <script setup lang="ts">
+import CentertainMap from '@/components/Home/CentertainMap.vue'
 import Friends from '../components/Home/Friends.vue'
-import Map from '../components/Home/Map.vue'
 </script>
 
 <template>
-  <main>
+  <div class="Home">
     <Friends />
-    <Map />
-  </main>
+    <CentertainMap />
+  </div>
 </template>
 
 <style>
-main {
-  width: 100%;
-  height: 100vh;
+.Home {
+  display: flex;
 }
 </style>

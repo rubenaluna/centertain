@@ -9,10 +9,10 @@
 
 <script lang="ts">
 import { Map } from 'maplibre-gl'
-import { shallowRef, onMounted, onUnmounted, markRaw, reactive, onBeforeMount, watch } from 'vue'
+import { markRaw, onBeforeMount, onMounted, onUnmounted, reactive, shallowRef, watch } from 'vue'
 
 export default {
-  name: 'Map',
+  name: 'CentertainMap',
 
   setup() {
     const container = shallowRef<HTMLElement | null>(null)

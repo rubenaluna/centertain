@@ -16,7 +16,7 @@ import {
 const container = shallowRef<HTMLElement | undefined>()
 const map = shallowRef<Map | undefined>()
 const position = ref<Point | undefined>()
-const { friends } = useStore()
+const { friends, center } = useStore()
 const markers = reactive<Record<string, Marker>>({})
 
 onBeforeMount(() => {

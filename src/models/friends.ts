@@ -4,4 +4,5 @@ export interface Friend {
   id: string
   name: string
   position?: Point
+  color: string
 }

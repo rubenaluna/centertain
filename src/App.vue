@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
   <main>
-    <Navbar />
     <RouterView class="View" />
   </main>
 </template>
@@ -18,6 +16,6 @@ main {
 }
 .View {
   width: 100%;
-  height: calc(100% - 50px);
+  height: 100%;
 }
 </style>

@@ -8,21 +8,23 @@ const { friends, addFriend } = useStore()
 
 <template>
   <div class="FriendsContainer">
-    <div class="FriendsHeader">
-      <div class="FriendsAdd"></div>
-      <label class="FriendsTitle">Friends</label>
-      <button class="FriendsAdd" @click="addFriend">
-        <Icon icon="radix-icons:plus" />
-      </button>
-    </div>
     <div class="FriendsContent">
-      <template v-if="!friends.size">
-        <span class="FriendsEmptyMessage">Add friends by pressing the + button</span>
-      </template>
-      <div v-if="friends.size" class="FriendsList">
-        <template v-for="friend in friends.values()" :key="friend.id">
-          <Friend :friend="friend" />
+      <div class="FriendsHeader">
+        <div class="FriendsAdd"></div>
+        <label class="FriendsTitle">Friends</label>
+        <button class="FriendsAdd" @click="addFriend">
+          <Icon icon="radix-icons:plus" />
+        </button>
+      </div>
+      <div class="FriendsBody">
+        <template v-if="!friends.size">
+          <span class="FriendsEmptyMessage">Add friends by pressing the + button</span>
         </template>
+        <div v-if="friends.size" class="FriendsList">
+          <template v-for="friend in friends.values()" :key="friend.id">
+            <Friend :friend="friend" />
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -39,11 +41,20 @@ hr {
 .FriendsContainer {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 350px;
   height: 100%;
   color: #333333;
   justify-content: center;
-  background-color: #cccccc;
+  background-color: rgba(200, 200, 200, 0.8);
+  backdrop-filter: blur(5px);
+  border-right: 1px solid #aaaaaa;
+  z-index: 2;
+}
+
+.FriendsContent {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 
 .FriendsHeader {
@@ -60,13 +71,24 @@ hr {
 }
 
 .FriendsAdd {
-  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
   width: 25px;
   border: none;
-  background-color: #cccccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 0px #bbbbbb;
+  margin: 5px;
+  transition: box-shadow 200ms;
 }
 
-.FriendsContent {
+.FriendsAdd:hover {
+  box-shadow: 0px 0px 5px 5px #bbbbbb;
+  transition: box-shadow 200ms;
+}
+
+.FriendsBody {
   display: flex;
   flex-direction: column;
   height: 100%;

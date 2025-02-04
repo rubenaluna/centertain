@@ -1,10 +1,12 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from './views/Home.vue'
+import Vue3ColorPicker from 'vue3-colorpicker'
+import 'vue3-colorpicker/style.css'
 import App from './App.vue'
+import Home from './views/Home.vue'
 
 const pinia = createPinia()
 const router = createRouter({
@@ -22,5 +24,6 @@ const app = createApp(App)
 
 app.use(router)
 app.use(pinia)
+app.use(Vue3ColorPicker)
 
 app.mount('#app')

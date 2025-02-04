@@ -14,6 +14,7 @@ import {
   ComboboxViewport,
 } from 'radix-vue'
 import { ref } from 'vue'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 interface GeocodedInputProps {
   onChange: (point: Point) => void
@@ -21,6 +22,7 @@ interface GeocodedInputProps {
 const { onChange } = defineProps<GeocodedInputProps>()
 const selected = ref<GeocodingResponse | undefined>()
 const options = ref<GeocodingResponse[]>([])
+const loading = ref<Boolean>(false)
 
 const handleInputFocus = () => {
   selected.value = undefined
@@ -29,7 +31,10 @@ const handleInputFocus = () => {
 
 const handleInputChange = async (event: Event) => {
   const { value } = <HTMLInputElement>event.target
+
+  loading.value = true
   const { data } = await getGeocodingSearch(value)
+  loading.value = false
 
   options.value = data
 }
@@ -61,7 +66,9 @@ const handleOptionSelected = (option: GeocodingResponse) => {
 
     <ComboboxContent class="GeocodedInputContent">
       <ComboboxViewport class="GeocodedInputViewport">
-        <ComboboxEmpty class="GeocodedInputEmpty" />
+        <ComboboxEmpty class="GeocodedInputEmpty">
+          <PulseLoader v-if="loading" loading color="#666666" class="GeocodedInputLoader" />
+        </ComboboxEmpty>
 
         <ComboboxGroup>
           <ComboboxItem

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import CentertainMap from '@/components/Home/CentertainMap.vue'
 import Friends from '../components/Home/Friends.vue'
+import Map from '../components/Home/Map.vue'
 </script>
 
 <template>
   <div class="Home">
     <Friends />
-    <CentertainMap />
+    <Map />
   </div>
 </template>
 
